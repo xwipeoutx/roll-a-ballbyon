@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "babylonjs": "^4.1.0",
+    "babylonjs-loaders": "^4.1.0",
+    "oimo": "^1.0.9",
     "webpack-merge": "^4.2.2"
   }
 }

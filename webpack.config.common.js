@@ -18,12 +18,12 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-        patterns: [
-            { from: "public" },
-        ],
+      patterns: [
+        { from: "public" },
+      ],
     }),
   ],
   externals: {
-    "babylonjs": "BABYLON",
+    "babylonjs": "BABYLON"
   },
 }
