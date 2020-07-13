@@ -1,0 +1,41 @@
+name: Actions 😎
+
+on:
+  pull_request: {}
+  push: { branches: [master] }
+
+jobs:
+  buildAndDeployToAzureStorage:
+    name: Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+          node-version: [12.x]
+
+    steps:    
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - run: npm ci
+    - run: npm run build
+
+    - name: Login to Azure
+      uses: Azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Publish app
+      uses: Azure/cli@v1.0.0
+      with:
+        azcliversion: latest
+        inlineScript: |
+            az storage blob upload-batch -s dist -d \$web --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }}
