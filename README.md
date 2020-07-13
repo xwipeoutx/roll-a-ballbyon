@@ -6,7 +6,7 @@ Shout out to [this babylon Typescript Starter](https://github.com/oktinaut/babyl
 
 ## Show me!
 
-Check out [the live demo](https://rollaballsteve.blob.core.windows.net/$web/index.html)
+Check out [the live demo](https://rollaballsteve.z8.web.core.windows.net/)
 
 ## Local dev
 
