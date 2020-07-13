@@ -2,3 +2,7 @@
 canvas {
     outline: none;
 }
+
+.content {
+    padding: 1rem;
+}
